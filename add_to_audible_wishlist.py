@@ -72,8 +72,8 @@ def read_asins_from_csv(csv_file):
         csv_reader = csv.reader(file)
         next(csv_reader)  # Skip header if exists
         for row in csv_reader:
-            if row and row[1]:  # Ensure row is not empty and has ASIN
-                asins.append(row[1].strip())
+            if row and row[0]:  # First column: ASIN (see kindle_books.csv)
+                asins.append(row[0].strip())
     return asins
 
 def main():
